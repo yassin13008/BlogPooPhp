@@ -32,7 +32,7 @@ require_once('libraries/model/Article.php');
 
 $model = new Article();
 
-$articles = $model->findAllArticle();
+$articles = $model->findAll();
 
 /**
  * 3. Affichage

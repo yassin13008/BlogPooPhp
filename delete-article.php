@@ -2,6 +2,10 @@
 
 require_once('libraries/databases.php');
 require_once('libraries/utils.php');
+
+
+require_once('libraries/model/Article.php');
+
 /**
  * DANS CE FICHIER, ON CHERCHE A SUPPRIMER L'ARTICLE DONT L'ID EST PASSE EN GET
  * 
@@ -18,19 +22,13 @@ if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
 
 $id = $_GET['id'];
 
-/**
- * 2. Connexion à la base de données avec PDO
- * Attention, on précise ici deux options :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir violament quand on fait une connerie ;-)
- * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- * 
- * PS : Vous remarquez que ce sont les mêmes lignes que pour l'index.php ?!
- */
+// Insertion de la class Article
 
-/**
- * 3. Vérification que l'article existe bel et bien
- */
-$article = findArticle($id);
+$model = new Article();
+
+
+
+$article = $model->find($id);
 
 if (!$article) {
     die("L'article $id n'existe pas, vous ne pouvez donc pas le supprimer !");
@@ -39,7 +37,7 @@ if (!$article) {
 /**
  * 4. Réelle suppression de l'article
  */
-$article = deleteArticle($id);
+$model->delete($id);
 
 /**
  * 5. Redirection vers la page d'accueil
