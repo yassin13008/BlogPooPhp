@@ -9,6 +9,7 @@
 
 require_once('libraries/databases.php');
 require_once('libraries/utils.php');
+require_once('libraries/model/Article.php');
 
 
 /**
@@ -28,7 +29,10 @@ require_once('libraries/utils.php');
  * 2. Récupération des articles
  */
 // On utilisera ici la méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
-$articles = findAllArticle();
+
+$model = new Article();
+
+$articles = $model->findAllArticle();
 
 /**
  * 3. Affichage

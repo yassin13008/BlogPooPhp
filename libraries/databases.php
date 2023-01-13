@@ -1,5 +1,7 @@
 <?php 
 
+// Fonction qui va créer une connexion à la base de donnée => retour d'un objet de class PDO (class native de PHP)
+
 function getPDO():PDO {
     
     $pdo = new PDO('mysql:host=localhost;dbname=blogpoo;charset=utf8', 'root', '', [
@@ -9,6 +11,9 @@ function getPDO():PDO {
 
     return $pdo;
 }
+
+
+// Fonction pour trouver tous les articles retour variable sous forme de tableau associatif
 
 function findAllArticle(): array {
 
@@ -21,6 +26,8 @@ function findAllArticle(): array {
     return $articles;
 }
 
+
+// Fonction pour trouver un article retour  variable sous forme de tableau associatif
 
 function findArticle(int $id) {
     
@@ -38,7 +45,7 @@ function findArticle(int $id) {
     
 }
 
-// Fonction pour trouver un commentaire sous forme de tableau associatif 
+// Fonction pour trouver un commentaire retour variable sous forme de tableau associatif 
 
 function findComment(int $id) {
 
@@ -53,7 +60,7 @@ function findComment(int $id) {
 
 }
 
-// Fonction pour récuper tout les commentaires sous tableau associatif
+// Fonction pour récuper tout les commentaires retour variable sous tableau associatif
 
 function findAllcomments(int $article_id) :array{
 
