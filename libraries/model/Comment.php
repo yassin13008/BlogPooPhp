@@ -1,27 +1,17 @@
 <?php 
+// Injetction des names spaces 
 
+namespace Model; 
 
+// Injection des dépendances 
 
 require_once('libraries/model/Model.php');
 
+
 class Comment extends Model {
 
+    protected $table = "comments";
 
-
-
-    
-function find(int $id) {
-
-   
-
-    $query = $this->pdo->prepare('SELECT * FROM comments WHERE id = :id');
-    $query->execute(['id' => $id]);
-
-    $comment = $query->fetch();
-
-    return $comment;
-
-}
 
 // Fonction pour récuper tout les commentaires retour variable sous tableau associatif
 
@@ -34,15 +24,6 @@ function findAllWithArticle(int $article_id) :array{
     $commentaires = $query->fetchAll();
 
     return $commentaires;
-}
-
-
-function delete(int $comment): void {
-
-   
-
-    $query = $this->pdo->prepare('DELETE FROM comments WHERE id = :id');
-    $query->execute(['id' => $comment]);
 }
 
 
