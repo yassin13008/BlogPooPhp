@@ -8,9 +8,13 @@ namespace Controller;
 
 
 require_once('libraries/utils.php'); // fonction concernant les utilitaires du site (redirection, affichage)
-require_once('libraries/model/Article.php'); // Class concernant les articles
-require_once('libraries/model/Comment.php'); // Class concernant les commentaires
-require_once('libraries/controller/Controller.php'); // Class concernant le controler
+// require_once('libraries/model/Article.php'); // Class concernant les articles
+// require_once('libraries/model/Comment.php'); // Class concernant les commentaires
+// require_once('libraries/controller/Controller.php'); // Class concernant le controler
+
+// Independance autoloading => 
+
+require_once ('libraries/autoload.php');
 
 class Article extends Controller{
 

@@ -1,5 +1,9 @@
 <?php
 
+// Injection de l'auto loading 
+
+require_once ('libraries/autoload.php');
+
 // Injection du controller
 require_once('libraries/controller/Article.php');
 

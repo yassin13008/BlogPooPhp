@@ -5,7 +5,9 @@ namespace Model;
 
 // Injection des dépendances 
 
-require_once('libraries/model/Model.php');
+// Injection de l'auto loading 
+
+require_once ('libraries/autoload.php');
 
 
 class Comment extends Model {

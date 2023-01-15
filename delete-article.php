@@ -1,5 +1,9 @@
 <?php
 
+// Injection de l'auto loading 
+
+require_once ('libraries/autoload.php');
+
 // Injection des dependances
 
 require_once('libraries/databases.php');
