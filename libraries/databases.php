@@ -6,15 +6,25 @@
 
 class Database {
 
-    public static function getPDO():PDO {
+    // Ce commentaire c'est pour le design pattern singleton 
+
+    private static $instance = null;
+
     
-        $pdo = new PDO('mysql:host=localhost;dbname=blogpoo;charset=utf8', 'root', '', [
+
+    public static function getPDO():PDO {
+
+        if(self::$instance === null) {
+    
+            self::$instance= new PDO('mysql:host=localhost;dbname=blogpoo;charset=utf8', 'root', '', [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
-    
-        return $pdo;
+
     }
+
+    return self::$instance;
+}
     
     
 
