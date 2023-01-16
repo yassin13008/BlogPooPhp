@@ -7,8 +7,8 @@ require_once ('libraries/autoload.php');
 
 // Injection fonction 
 
-require_once('libraries/databases.php');
-require_once ('libraries/utils.php');
+// require_once('libraries/databases.php');
+// require_once ('libraries/utils.php');
 
 // Injection dependance du controller
 

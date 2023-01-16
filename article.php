@@ -9,8 +9,8 @@ require_once('libraries/controller/Article.php');
 
 
 // Injection des dependance 
-require_once('libraries/databases.php');
-require_once('libraries/utils.php');
+// require_once('libraries/databases.php');
+// require_once('libraries/utils.php');
 require_once('libraries/model/Article.php');
 require_once('libraries/model/Comment.php');
 

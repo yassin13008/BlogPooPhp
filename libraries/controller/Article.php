@@ -7,7 +7,7 @@ namespace Controller;
 // Injection des dépendances 
 
 
-require_once('libraries/utils.php'); // fonction concernant les utilitaires du site (redirection, affichage)
+// require_once('libraries/utils.php'); // fonction concernant les utilitaires du site (redirection, affichage)
 // require_once('libraries/model/Article.php'); // Class concernant les articles
 // require_once('libraries/model/Comment.php'); // Class concernant les commentaires
 // require_once('libraries/controller/Controller.php'); // Class concernant le controler
@@ -33,7 +33,7 @@ $articles = $this->model->findAll("created_at DESC");
  */
 $pageTitle = "Acceuil";
 
-render('articles/index', compact('pageTitle','articles'));
+\Renderer::render('articles/index', compact('pageTitle','articles'));
 
 }
 
@@ -56,7 +56,7 @@ if (!$article_id) {
 }
 
 
-$pdo = getPDO();
+$pdo = \Database::getPDO();
 
 
 $article = $this->model->find($article_id);
@@ -67,7 +67,7 @@ $commentaires = $commentModel->findAllWithArticle($article_id);
 
 $pageTitle = $article['title'];
 
-render('articles/show', compact('pageTitle','article','commentaires','article_id'));
+\Renderer::render('articles/show', compact('pageTitle','article','commentaires','article_id'));
 
     }
 
@@ -99,7 +99,7 @@ render('articles/show', compact('pageTitle','article','commentaires','article_id
         /**
          * 5. Redirection vers la page d'accueil
          */
-        redirect("index.php" );
+        \Http::redirect("index.php" );
         
     }
 

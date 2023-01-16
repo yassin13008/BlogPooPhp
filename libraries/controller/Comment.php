@@ -5,10 +5,10 @@
 namespace Controller; 
 
 // Injection des dépendances 
-require_once('libraries/utils.php'); // fonction concernant les utilitaires du site (redirection, affichage)
-require_once('libraries/model/Article.php'); // Class concernant les articles
-require_once('libraries/model/Comment.php'); // Class concernant les commentaires
-require_once('libraries/controller/Controller.php'); // Class concernant le controler
+// require_once('libraries/utils.php'); // fonction concernant les utilitaires du site (redirection, affichage)
+// require_once('libraries/model/Article.php'); // Class concernant les articles
+// require_once('libraries/model/Comment.php'); // Class concernant les commentaires
+// require_once('libraries/controller/Controller.php'); // Class concernant le controler
 
 class Comment extends Controller{
 
@@ -48,7 +48,7 @@ $modelArticle = new \Model\Article();
 
 
 
-$pdo = getPDO();
+$pdo = \Database::getPDO();
 
 $article = $modelArticle->find($article_id);
 
@@ -61,7 +61,7 @@ if (!$article) {
 $this->model->insert($author,$content,$article_id);
 
 // 4. Redirection vers l'article en question :
-redirect("article.php?id=" . $article_id);
+\Http::redirect("article.php?id=" . $article_id);
 
     }
 
@@ -104,7 +104,7 @@ redirect("article.php?id=" . $article_id);
         /**
          * 5. Redirection vers l'article en question
          */
-        redirect("article.php?id=" . $article_id);
+        \Http::redirect("article.php?id=" . $article_id);
         
     }
 
