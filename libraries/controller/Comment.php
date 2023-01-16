@@ -61,7 +61,7 @@ if (!$article) {
 $this->model->insert($author,$content,$article_id);
 
 // 4. Redirection vers l'article en question :
-\Http::redirect("article.php?id=" . $article_id);
+\Http::redirect("index.php?controller=article&task=show&id=" . $article_id);
 
     }
 
@@ -104,7 +104,7 @@ $this->model->insert($author,$content,$article_id);
         /**
          * 5. Redirection vers l'article en question
          */
-        \Http::redirect("article.php?id=" . $article_id);
+        \Http::redirect("index.php?controller=article&task=show&id=" . $article_id);
         
     }
 
